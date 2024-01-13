@@ -97,7 +97,7 @@ jobs:
       - name: Deploy DB and services
         run: |
           kubectl get namespace
-          cd helm
+          cd k8s
           echo "------------------Deploy DB------------------"
           helm delete postgres --namespace ondubovickaya --ignore-not-found
           helm install -n ondubovickaya postgres ./postgres
