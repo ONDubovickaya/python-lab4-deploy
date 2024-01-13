@@ -105,6 +105,7 @@ jobs:
           echo "------------------Deploy services------------------"
           helm delete cars --namespace ondubovickaya --ignore-not-found
           helm install -n ondubovickaya cars ./services
+      
       - name: Wait 60s
         uses: jakejarvis/wait-action@master
         with:
@@ -114,18 +115,17 @@ jobs:
         run: |
           kubectl get all -n ondubovickaya
       
-      - name: get URLs 
-        run: |
-          echo "------------------Gateway URL------------------"
-          minikube service gateway -n ondubovickaya --url
-          echo "------------------Cars Service URL------------------"
-          minikube service cars -n ondubovickaya --url
-          echo "------------------Payments Service URL------------------"
-          minikube service payments -n ondubovickaya --url
-          echo "------------------Rental Service URL------------------"
-          minikube service rental -n ondubovickaya --url
+      #- name: get URLs 
+        #run: |
+          #echo "------------------Gateway URL------------------"
+          #minikube service gateway -n ondubovickaya --url
+          #echo "------------------Cars Service URL------------------"
+          #minikube service cars -n ondubovickaya --url
+          #echo "------------------Payments Service URL------------------"
+          #minikube service payments -n ondubovickaya --url
+          #echo "------------------Rental Service URL------------------"
+          #minikube service rental -n ondubovickaya --url
         
-        #minikube service postgres -n ondubovickaya --url
       #- uses: education/autograding@v1
        # id: autograder
        # continue-on-error: true
